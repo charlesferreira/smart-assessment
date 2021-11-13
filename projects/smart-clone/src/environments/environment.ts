@@ -1,16 +1,10 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
+  production: false,
+  mapbox: {
+    accessToken: 'pk.eyJ1IjoiY2hhcmxlc2ZlcnJlaXJhIiwiYSI6ImNrdnV4M2xlczB6dGoyd28yNWRxb3BvZmUifQ.qIjzCMH4DjhVJml84G_Ehg',
+    // style: 'https://api.maptiler.com/maps/74a1fbc2-29a2-41f6-932e-48794340ff54/style.json?key=LmQtBBRUitvZZP7HybC7',
+  },
+  smart: {
+    apiUrl: 'https://app.smartapartmentdata.com/List/json',
+  },
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

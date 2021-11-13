@@ -6,6 +6,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
-  exports: [LayoutModule, MatToolbarModule, MatSidenavModule, MatListModule, MatProgressBarModule],
+  exports: [
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatProgressBarModule,
+    MatProgressBarModule,
+  ],
 })
 export class AngularMaterialModule {}
