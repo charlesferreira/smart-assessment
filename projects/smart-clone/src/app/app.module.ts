@@ -10,9 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
+import { PropertyListComponent } from './components/property-list/property-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PropertyListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
