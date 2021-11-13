@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { PropertyListComponent } from './components/property-list/property-list.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -9,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'property-list',
-    loadChildren: () => import('./property-list/property-list.module').then(m => m.PropertyListModule),
+    component: PropertyListComponent,
   },
 ];
 
