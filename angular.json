@@ -108,6 +108,37 @@
           }
         }
       }
+    },
+    "ngx-smartmap": {
+      "projectType": "library",
+      "root": "projects/ngx-smartmap",
+      "sourceRoot": "projects/ngx-smartmap/src",
+      "prefix": "smartmap",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-smartmap/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-smartmap/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-smartmap/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-smartmap/src/test.ts",
+            "tsConfig": "projects/ngx-smartmap/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-smartmap/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "smart-clone"
