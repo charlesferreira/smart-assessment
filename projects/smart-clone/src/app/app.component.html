@@ -1,15 +1,9 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false"
-  >
+  <mat-sidenav class="sidenav" fixedInViewport mode="side" opened="true">
     <router-outlet></router-outlet>
   </mat-sidenav>
+
   <mat-sidenav-content>
-    <!-- MAP GOES HERE -->
+    <smartmap-map></smartmap-map>
   </mat-sidenav-content>
 </mat-sidenav-container>

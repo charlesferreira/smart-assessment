@@ -13,8 +13,7 @@
     "sourceMap": true,
     "paths": {
       "ngx-smartmap": [
-        "dist/ngx-smartmap/ngx-smartmap",
-        "dist/ngx-smartmap"
+        "projects/ngx-smartmap/src/public-api",
       ]
     },
     "declaration": false,

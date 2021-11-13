@@ -1,16 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NgxSmartmapComponent } from './ngx-smartmap.component';
 
-
+import { MapComponent } from './map/map.component';
 
 @NgModule({
-  declarations: [
-    NgxSmartmapComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    NgxSmartmapComponent
-  ]
+  declarations: [MapComponent],
+  imports: [],
+  exports: [MapComponent],
 })
-export class NgxSmartmapModule { }
+export class NgxSmartmapModule {}
