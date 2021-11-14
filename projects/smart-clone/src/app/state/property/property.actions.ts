@@ -11,7 +11,10 @@ export const errorSelectingPropertyList = createAction(
   props<{ error: any }>()
 );
 
-export const selectProperty = createAction('[Property] Select Property');
+export const selectProperty = createAction(
+  '[Property] Select Property',
+  props<{ listID: number; propertyID: number }>()
+);
 
 export const selectedProperty = createAction('[Property] Selected Property', props<Property>());
 
