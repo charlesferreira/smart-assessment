@@ -1,12 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --default-background-color: #1976d2;
+  --lighter-background-color: #2196f3;
+  --color-white: white;
+  --color-black: hsl(0, 0%, 20%);
+  --color-light-grey: hsl(0, 0%, 65%);
+  --color-dark-grey: hsl(0, 0%, 55%);
+  --default-padding: 1rem;
+  --smaller-padding: 0.5rem;
+  --smallest-padding: 0.33rem;
+  --border-color: hsl(0, 0%, 90%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html,
 body {
+  width: 100%;
   height: 100%;
-}
-body {
-  margin: 0;
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+  line-height: 22px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
     'Helvetica Neue', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background: #00000022;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00000066;
+  border-radius: 0;
+}
+
+header {
+  padding: var(--default-padding);
+  color: var(--color-white);
+  background-color: var(--default-background-color);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.subheader {
+  padding: var(--default-padding);
+  color: var(--color-white);
+  background-color: var(--lighter-background-color);
+  font-size: 0.85rem;
+  font-weight: 200;
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--smaller-padding);
 }

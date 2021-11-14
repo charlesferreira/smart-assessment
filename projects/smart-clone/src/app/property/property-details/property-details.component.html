@@ -1,7 +1,15 @@
-<mat-toolbar color="primary" *ngIf="(isLoading$ | async) === false; else loading">
-  {{ (property$ | async)?.name }}
-</mat-toolbar>
+<ng-container *ngIf="(isLoading$ | async) === false; else loading">
+  <ng-container *ngIf="property$ | async as property">
+    <header>
+      <a [routerLink]="">Back to results</a>
+    </header>
+    <div class="subheader">
+      <div class="name">{{ property.name }}</div>
+      <div class="city">{{ property.city }}</div>
+    </div>
+  </ng-container>
+</ng-container>
 
 <ng-template #loading>
-  <mat-toolbar color="primary"> Loading... </mat-toolbar>
+  <header color="primary">Loading...</header>
 </ng-template>

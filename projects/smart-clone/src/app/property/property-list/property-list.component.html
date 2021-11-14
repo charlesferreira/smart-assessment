@@ -1,17 +1,31 @@
 <ng-container *ngIf="(isLoading$ | async) === false; else loading">
   <ng-container *ngIf="propertyList$ | async as propertyList">
-    <mat-toolbar color="primary">
+    <header>
       {{ propertyList | propertyListTitle }}
-    </mat-toolbar>
-
-    <mat-nav-list>
-      <a mat-list-item [routerLink]="[property.propertyID]" *ngFor="let property of propertyList?.records">
-        {{ property.name }}
-      </a>
-    </mat-nav-list>
+    </header>
+    <main>
+      <ul>
+        <li *ngFor="let property of propertyList?.records">
+          <a [routerLink]="[property.propertyID]">
+            <div class="wrapper">
+              <p class="name">{{ property.name }}</p>
+              <address>{{ property.streetAddress }}, {{ property.city }}</address>
+              <div class="floorplans">
+                <div class="bed" *ngFor="let floorplan of property.floorplans">
+                  <img src="https://my.smartapartmentdata.com/assets/images/{{ floorplan.bedrooms }}-bed.svg" alt="" />
+                  ${{ floorplan.price | number }}+
+                </div>
+              </div>
+              <p class="amenities">{{ property.highValueAmenities.length | pluralize: 'amenities' }}</p>
+            </div>
+            <img [src]="property.photo" alt="" *ngIf="property.photo" />
+          </a>
+        </li>
+      </ul>
+    </main>
   </ng-container>
 </ng-container>
 
 <ng-template #loading>
-  <mat-toolbar color="primary"> Loading... </mat-toolbar>
+  <header>Loading...</header>
 </ng-template>
