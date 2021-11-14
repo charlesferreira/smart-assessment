@@ -1,31 +1,6 @@
-<ng-container *ngIf="(isLoading$ | async) === false; else loading">
-  <ng-container *ngIf="propertyList$ | async as propertyList">
-    <header>
-      {{ propertyList | propertyListTitle }}
-    </header>
-    <main>
-      <ul>
-        <li *ngFor="let property of propertyList?.records">
-          <a [routerLink]="[property.propertyID]">
-            <div class="wrapper">
-              <p class="name">{{ property.name }}</p>
-              <address>{{ property.streetAddress }}, {{ property.city }}</address>
-              <div class="floorplans">
-                <div class="bed" *ngFor="let floorplan of property.floorplans">
-                  <img src="https://my.smartapartmentdata.com/assets/images/{{ floorplan.bedrooms }}-bed.svg" alt="" />
-                  ${{ floorplan.price | number }}+
-                </div>
-              </div>
-              <p class="amenities">{{ property.highValueAmenities.length | pluralize: 'amenities' }}</p>
-            </div>
-            <img [src]="property.photo" alt="" *ngIf="property.photo" />
-          </a>
-        </li>
-      </ul>
-    </main>
-  </ng-container>
-</ng-container>
+<smart-clone-property-list-header
+  [propertyList]="propertyList"
+  [isLoading]="isLoading"
+></smart-clone-property-list-header>
 
-<ng-template #loading>
-  <header>Loading...</header>
-</ng-template>
+<smart-clone-property-list-body [propertyList]="propertyList" *ngIf="!isLoading"></smart-clone-property-list-body>

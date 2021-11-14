@@ -1,0 +1,18 @@
+:host {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--smaller-padding);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--smaller-padding);
+
+  li {
+    border: 1px solid var(--border-color);
+    box-shadow: 1px 1px 0 var(--border-color);
+    background-color: var(--color-white);
+  }
+}

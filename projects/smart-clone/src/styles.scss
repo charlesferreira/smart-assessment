@@ -1,3 +1,21 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$blue-palette, 700);
+$my-accent: mat.define-palette(mat.$light-blue-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-theme);
+
 :root {
   --default-background-color: #1976d2;
   --lighter-background-color: #2196f3;
@@ -42,12 +60,17 @@ body {
   border-radius: 0;
 }
 
-header {
-  padding: var(--default-padding);
-  color: var(--color-white);
-  background-color: var(--default-background-color);
+.sidenav mat-toolbar {
+  padding: var(--smaller-padding) var(--default-padding);
   font-size: 0.9rem;
   font-weight: 400;
+  height: 3rem;
+
+  a {
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: 600;
+  }
 }
 
 .subheader {
@@ -55,11 +78,7 @@ header {
   color: var(--color-white);
   background-color: var(--lighter-background-color);
   font-size: 0.85rem;
-  font-weight: 200;
-}
-
-main {
-  flex: 1;
-  overflow-y: auto;
-  padding: var(--smaller-padding);
+  font-weight: 200 !important;
+  display: flex;
+  flex-direction: column;
 }

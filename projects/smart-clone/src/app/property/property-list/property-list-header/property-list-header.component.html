@@ -1,0 +1,6 @@
+<mat-toolbar color="primary">
+  <span *ngIf="isLoading; else title">Loading...</span>
+  <ng-template #title>
+    <span *ngIf="propertyList">{{ propertyList | propertyListTitle }}</span>
+  </ng-template>
+</mat-toolbar>

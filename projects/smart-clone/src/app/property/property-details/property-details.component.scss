@@ -1,4 +1,9 @@
 .name {
   font-size: 1.1rem;
-  margin-bottom: var(--smaller-padding);
+  //   margin-bottom: var(--smaller-padding);
+}
+
+.container {
+  padding: var(--default-padding) !important;
+  color: var(--color-black);
 }
