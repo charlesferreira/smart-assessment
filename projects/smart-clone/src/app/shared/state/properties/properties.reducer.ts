@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { Property } from '../../models/property.model';
+import { Property } from '../../../core/models/property.model';
 import { retrievedProperties } from './properties.actions';
 
 export const initialState: ReadonlyArray<Property> = [];

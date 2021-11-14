@@ -1,8 +1,4 @@
 import { createAction, props } from '@ngrx/store';
+import { PropertyList } from '@smart-clone/core/models/property-list.model';
 
-import { PropertyList } from '../../models/property-list.model';
-
-export const retrievedPropertyLists = createAction(
-  '[PropertyLists] Retrieved PropertyLists',
-  props<{ propertyLists: ReadonlyArray<PropertyList> }>()
-);
+export const selectedPropertyList = createAction('[PropertyLists] Selected PropertyList', props<PropertyList>());

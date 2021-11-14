@@ -1,11 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { PropertyList } from '../../models/property-list.model';
-import { retrievedPropertyLists } from './property-lists.actions';
+import { selectedPropertyList } from './property-lists.actions';
+import { PropertyListsState } from './property-lists.state';
 
-export const initialState: ReadonlyArray<PropertyList> = [];
+export const initialState: PropertyListsState = {};
 
 export const propertyListsReducer = createReducer(
   initialState,
-  on(retrievedPropertyLists, (state, { propertyLists }) => propertyLists)
+  on(selectedPropertyList, (state, currentPropertyList) => ({ ...state, currentPropertyList }))
 );

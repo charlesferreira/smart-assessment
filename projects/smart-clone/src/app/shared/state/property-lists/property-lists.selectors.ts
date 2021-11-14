@@ -1,5 +1,10 @@
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { PropertyList } from '../../models/property-list.model';
+import { PropertyListsState } from './property-lists.state';
 
-export const selectPropertyLists = createFeatureSelector<ReadonlyArray<PropertyList>>('propertyLists');
+export const selectPropertyListsState = createFeatureSelector<PropertyListsState>('propertyLists');
+
+export const selectCurrentPropertyList = createSelector(
+  selectPropertyListsState,
+  (state: PropertyListsState) => state.currentPropertyList
+);

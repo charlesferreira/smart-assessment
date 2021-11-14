@@ -12,6 +12,12 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
+      "@smart-clone/*": [
+        "projects/smart-clone/src/app/*"
+      ],
+      "@smart-clone/env/*": [
+        "projects/smart-clone/src/environments/*"
+      ],
       "ngx-smartmap": [
         "projects/ngx-smartmap/src/public-api",
       ]

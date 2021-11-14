@@ -1,7 +1,7 @@
-import { PropertyList } from '../models/property-list.model';
-import { Property } from '../models/property.model';
+import { Property } from '../../core/models/property.model';
+import { PropertyListsState } from './property-lists/property-lists.state';
 
 export interface AppState {
-  propertyLists: ReadonlyArray<PropertyList>;
+  propertyLists: PropertyListsState;
   properties: ReadonlyArray<Property>;
 }
