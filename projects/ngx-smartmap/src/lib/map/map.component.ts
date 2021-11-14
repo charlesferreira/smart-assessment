@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { MapConfig } from './../models/map-config.model';
+import { MapService } from './map.service';
 
 @Component({
   selector: 'smartmap-map',
@@ -6,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.css'],
 })
 export class MapComponent implements OnInit {
-  constructor() {}
+  @Input() config!: MapConfig;
 
-  ngOnInit(): void {}
+  constructor(private mapService: MapService) {}
+
+  ngOnInit(): void {
+    this.mapService.initMap({ ...this.config, container: 'map' });
+  }
 }

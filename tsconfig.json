@@ -19,10 +19,11 @@
         "projects/smart-clone/src/environments/*"
       ],
       "ngx-smartmap": [
-        "projects/ngx-smartmap/src/public-api",
+        // "projects/ngx-smartmap/src/public-api",
+        "dist/ngx-smartmap",
       ]
     },
-    "declaration": false,
+    "declaration": false, 
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
