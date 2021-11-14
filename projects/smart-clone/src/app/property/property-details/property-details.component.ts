@@ -32,6 +32,7 @@ export class PropertyDetailsComponent implements OnInit, OnDestroy {
   private dispatchSelectAction(): void {
     const listID = +this.route.snapshot.paramMap.get('listID')!;
     const propertyID = +this.route.snapshot.paramMap.get('propertyID')!;
+
     this.store.dispatch(selectProperty({ listID, propertyID }));
   }
 

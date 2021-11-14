@@ -1,5 +1,7 @@
 @use '@angular/material' as mat;
 
+@import url('../../../node_modules/mapbox-gl/dist/mapbox-gl.css');
+
 @include mat.core();
 
 $my-primary: mat.define-palette(mat.$blue-palette, 700);

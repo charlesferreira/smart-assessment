@@ -1,8 +1,6 @@
-<div class="default-padding" *ngIf="property.specials">
-  <div class="specials">
-    <p class="title">SPECIALS</p>
-    <p>{{ property.specials }}</p>
-  </div>
+<div class="default-padding specials" *ngIf="property.specials">
+  <p class="title">SPECIALS</p>
+  <p>{{ property.specials }}</p>
 </div>
 
 <mat-accordion>
@@ -13,6 +11,6 @@
       </mat-panel-title>
       <mat-panel-description class="align-right">${{ plan.price | number }}</mat-panel-description>
     </mat-expansion-panel-header>
-    <img src="{{ plan.photoUrl }}" alt="" />
+    <img [src]="plan.photoUrl" alt="" />
   </mat-expansion-panel>
 </mat-accordion>

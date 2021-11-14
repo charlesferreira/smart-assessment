@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { PropertyService } from '@smart-clone/services/property.service';
-import { exhaustMap, map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 import { selectedProperty, selectedPropertyList, selectProperty, selectPropertyList } from './property.actions';
 
@@ -10,7 +10,7 @@ export class PropertyEffects {
   selectPropertyList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(selectPropertyList),
-      exhaustMap(action =>
+      switchMap(action =>
         this.propertyService
           .getPropertyList(action.listID)
           .pipe(map(propertyList => selectedPropertyList(propertyList)))
@@ -21,7 +21,7 @@ export class PropertyEffects {
   selectProperty$ = createEffect(() =>
     this.actions$.pipe(
       ofType(selectProperty),
-      exhaustMap(action =>
+      switchMap(action =>
         this.propertyService
           .getProperty(action.listID, action.propertyID)
           .pipe(map(property => selectedProperty(property)))
