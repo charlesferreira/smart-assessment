@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PropertyList } from '@smart-clone/core/models/property-list.model';
 import { environment } from '@smart-clone/env/environment';
+import { PropertyList } from '@smart-clone/shared/models/property-list.model';
 
 const API_URL = environment.smart.apiUrl;
 

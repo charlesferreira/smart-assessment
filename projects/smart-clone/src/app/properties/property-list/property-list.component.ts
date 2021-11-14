@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectedPropertyList } from '@smart-clone/shared/state/property-lists/property-lists.actions';
-import { selectCurrentPropertyList } from '@smart-clone/shared/state/property-lists/property-lists.selectors';
+import { selectedPropertyList } from '@smart-clone/shared/state/properties/properties.actions';
+import { selectCurrentPropertyList } from '@smart-clone/shared/state/properties/properties.selectors';
 
 import { PropertyListService } from './property-list.service';
 

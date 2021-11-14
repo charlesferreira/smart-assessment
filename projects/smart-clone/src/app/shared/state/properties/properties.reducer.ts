@@ -1,11 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { Property } from '../../../core/models/property.model';
-import { retrievedProperties } from './properties.actions';
+import { selectedPropertyList } from './properties.actions';
+import { PropertiesState } from './properties.state';
 
-export const initialState: ReadonlyArray<Property> = [];
+export const initialState: PropertiesState = {};
 
 export const propertiesReducer = createReducer(
   initialState,
-  on(retrievedProperties, (state, { properties }) => properties)
+  on(selectedPropertyList, (state, currentPropertyList) => ({ ...state, currentPropertyList }))
 );

@@ -7,12 +7,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NgxSmartmapModule } from 'ngx-smartmap';
 
 import { environment } from '../environments/environment';
-import { AngularMaterialModule } from './angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PropertiesModule } from './properties/properties.module';
+import { SharedModule } from './shared/shared.module';
 import { propertiesReducer } from './shared/state/properties/properties.reducer';
-import { propertyListsReducer } from './shared/state/property-lists/property-lists.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,10 +20,10 @@ import { propertyListsReducer } from './shared/state/property-lists/property-lis
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
+    SharedModule,
     PropertiesModule,
     NgxSmartmapModule,
-    StoreModule.forRoot({ propertyLists: propertyListsReducer, properties: propertiesReducer }),
+    StoreModule.forRoot({ properties: propertiesReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
