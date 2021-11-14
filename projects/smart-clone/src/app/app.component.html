@@ -1,4 +1,4 @@
-<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading$ | async"></mat-progress-bar>
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="sidenav" fixedInViewport mode="side" opened="true">
@@ -6,7 +6,6 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <pre>{{ propertyList$ | async | json }}</pre>
     <smartmap-map>
       <smartmap-source></smartmap-source>
       <smartmap-layer></smartmap-layer>

@@ -1,3 +1,3 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 
-export const setLoading = createAction('[App] Set Loading', props<{ isLoading: boolean }>());
+export const setLoading = createAction('[App] Set Loading', (isLoading: boolean) => ({ isLoading }));

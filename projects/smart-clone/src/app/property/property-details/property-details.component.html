@@ -1,3 +1,7 @@
-<mat-toolbar color="primary">
-  <span>{{ (property$ | async)?.name }}</span>
+<mat-toolbar color="primary" *ngIf="(isLoading$ | async) === false; else loading">
+  {{ (property$ | async)?.name }}
 </mat-toolbar>
+
+<ng-template #loading>
+  <mat-toolbar color="primary"> Loading... </mat-toolbar>
+</ng-template>

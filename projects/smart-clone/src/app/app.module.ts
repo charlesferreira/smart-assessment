@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,15 +10,12 @@ import { NgxSmartmapModule } from 'ngx-smartmap';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { httpInterceptorProviders } from './http-interceptors';
 import { PropertyModule } from './property/property.module';
-import { LoadingStateInterceptor } from './services/loading-state-interceptor.service';
 import { SharedModule } from './shared/shared.module';
 import { PropertyEffects } from './state/property/property.effects';
 import { propertyReducer } from './state/property/property.reducer';
-
-export const httpInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: LoadingStateInterceptor, multi: true },
-];
+import { sharedReducer } from './state/shared/shared.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +27,7 @@ export const httpInterceptorProviders = [
     SharedModule,
     PropertyModule,
     NgxSmartmapModule,
-    StoreModule.forRoot({ property: propertyReducer }),
+    StoreModule.forRoot({ property: propertyReducer, shared: sharedReducer }),
     EffectsModule.forFeature([PropertyEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),

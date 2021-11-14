@@ -4,10 +4,10 @@ import { setLoading } from './shared.actions';
 import { SharedState } from './shared.state';
 
 export const initialState: SharedState = {
-  isLoading: false,
+  loading: 0,
 };
 
 export const sharedReducer = createReducer(
   initialState,
-  on(setLoading, (state, { isLoading }) => ({ ...state, isLoading }))
+  on(setLoading, (state, { isLoading }) => ({ ...state, loading: state.loading + (isLoading ? 1 : -1) }))
 );
