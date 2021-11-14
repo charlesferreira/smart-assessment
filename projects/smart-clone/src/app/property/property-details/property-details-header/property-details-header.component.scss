@@ -1,0 +1,16 @@
+.subheader {
+  padding: var(--default-padding);
+  height: auto;
+  color: var(--color-white);
+  background-color: var(--secondary-color);
+  font-weight: 200 !important;
+}
+
+.name {
+  font-size: 1.1rem;
+}
+
+.city {
+  font-size: 0.85rem;
+  line-height: 1.25rem;
+}

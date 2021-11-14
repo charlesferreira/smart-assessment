@@ -1,0 +1,8 @@
+<mat-tab-group mat-stretch-tabs *ngIf="property">
+  <mat-tab label="Plans">
+    <smart-clone-property-details-body-plans [property]="property"></smart-clone-property-details-body-plans>
+  </mat-tab>
+  <mat-tab label="Overview">
+    <smart-clone-property-details-body-overview [property]="property"></smart-clone-property-details-body-overview>
+  </mat-tab>
+</mat-tab-group>

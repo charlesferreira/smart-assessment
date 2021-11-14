@@ -17,8 +17,8 @@ $my-theme: mat.define-light-theme(
 @include mat.all-component-themes($my-theme);
 
 :root {
-  --default-background-color: #1976d2;
-  --lighter-background-color: #2196f3;
+  --primary-color: #1976d2;
+  --secondary-color: #2196f3;
   --color-white: white;
   --color-black: hsl(0, 0%, 20%);
   --color-light-grey: hsl(0, 0%, 65%);
@@ -26,7 +26,7 @@ $my-theme: mat.define-light-theme(
   --default-padding: 1rem;
   --smaller-padding: 0.5rem;
   --smallest-padding: 0.33rem;
-  --border-color: hsl(0, 0%, 90%);
+  --default-border-color: hsl(0, 0%, 90%);
 }
 
 * {
@@ -73,12 +73,12 @@ body {
   }
 }
 
-.subheader {
+.default-padding {
   padding: var(--default-padding);
-  color: var(--color-white);
-  background-color: var(--lighter-background-color);
-  font-size: 0.85rem;
-  font-weight: 200 !important;
-  display: flex;
-  flex-direction: column;
+}
+.smaller-padding {
+  padding: var(--smaller-padding);
+}
+.smallest-padding {
+  padding: var(--smallest-padding);
 }

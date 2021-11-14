@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" *ngIf="isLoading; else header">
+  <span>Loading...</span>
+</mat-toolbar>
+
+<ng-template #header>
+  <mat-toolbar color="primary">
+    <a [routerLink]="['/']">Back to results</a>
+  </mat-toolbar>
+
+  <mat-toolbar class="subheader" *ngIf="property">
+    <div>
+      <div class="name">{{ property.name }}</div>
+      <div class="city">{{ property.city }}</div>
+    </div>
+  </mat-toolbar>
+</ng-template>

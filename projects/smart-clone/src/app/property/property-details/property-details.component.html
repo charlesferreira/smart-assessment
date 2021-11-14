@@ -1,27 +1,11 @@
-<ng-container *ngIf="(isLoading$ | async) === false; else loading">
-  <ng-container *ngIf="property$ | async as property">
-    <mat-toolbar color="primary">
-      <a [routerLink]="['/']">Back to results</a>
-    </mat-toolbar>
-    <mat-toolbar class="subheader">
-      <div>
-        <div class="name">{{ property.name }}</div>
-        <div class="city">{{ property.city }}</div>
-      </div>
-    </mat-toolbar>
+<smart-clone-property-details-header
+  [property]="property"
+  [isLoading]="isLoading"
+></smart-clone-property-details-header>
 
-    <mat-tab-group mat-stretch-tabs>
-      <mat-tab label="Plans">
-        <div class="specials container" *ngIf="property.specials">
-          <p class="title">SPECIALS</p>
-          <p>{{ property.specials }}</p>
-        </div>
-      </mat-tab>
-      <mat-tab label="Overview"> tabbody </mat-tab>
-    </mat-tab-group>
-  </ng-container>
-</ng-container>
+<smart-clone-property-details-photos
+  [photos]="property.photos"
+  *ngIf="property && !isLoading"
+></smart-clone-property-details-photos>
 
-<ng-template #loading>
-  <mat-toolbar color="primary">Loading...</mat-toolbar>
-</ng-template>
+<smart-clone-property-details-body [property]="property" *ngIf="!isLoading"></smart-clone-property-details-body>

@@ -11,8 +11,8 @@ ul {
   gap: var(--smaller-padding);
 
   li {
-    border: 1px solid var(--border-color);
-    box-shadow: 1px 1px 0 var(--border-color);
+    border: 1px solid var(--default-border-color);
+    box-shadow: 1px 1px 0 var(--default-border-color);
     background-color: var(--color-white);
   }
 }

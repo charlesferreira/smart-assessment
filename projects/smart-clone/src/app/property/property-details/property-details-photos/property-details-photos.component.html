@@ -1,0 +1,6 @@
+<div class="photos">
+  <div class="photo" *ngFor="let photo of photos | slice: 0:3; let i = index">
+    <img src="{{ photo }}" alt="" />
+    <div class="count" *ngIf="i === 2 && photos.length > 3">{{ photos.length }} photos</div>
+  </div>
+</div>

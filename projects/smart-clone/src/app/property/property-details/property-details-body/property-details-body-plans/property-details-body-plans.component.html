@@ -1,0 +1,18 @@
+<div class="default-padding" *ngIf="property.specials">
+  <div class="specials">
+    <p class="title">SPECIALS</p>
+    <p>{{ property.specials }}</p>
+  </div>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel class="mat-elevation-z0" *ngFor="let plan of property.floorplans">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ plan.bed | pluralize: 'beds' }}, {{ plan.bath | pluralize: 'baths' }}, {{ plan.sqft }} sqft
+      </mat-panel-title>
+      <mat-panel-description class="align-right">${{ plan.price | number }}</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+</mat-accordion>

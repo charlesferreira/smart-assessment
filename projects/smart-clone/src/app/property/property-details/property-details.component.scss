@@ -1,9 +1,5 @@
-.name {
-  font-size: 1.1rem;
-  //   margin-bottom: var(--smaller-padding);
-}
-
-.container {
-  padding: var(--default-padding) !important;
-  color: var(--color-black);
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
