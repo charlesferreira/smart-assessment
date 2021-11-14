@@ -1,15 +1,14 @@
 mat-expansion-panel {
-  border: solid var(--default-border-color);
-  border-width: 1px 0 0;
-
-  &:last-child {
-    border-bottom-width: 1px;
-  }
+  border-bottom: 1px solid var(--default-border-color);
 }
 
 mat-panel-description.align-right {
   flex-grow: 0;
   color: var(--primary-color);
-  //   font-weight: 500;
   font-size: 1.1rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
