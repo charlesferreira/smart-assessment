@@ -3,7 +3,11 @@
 </mat-toolbar>
 
 <mat-nav-list>
-  <a mat-list-item href="#" *ngFor="let property of (selectedPropertyList$ | async)?.records">
+  <a
+    mat-list-item
+    [routerLink]="[property.propertyID]"
+    *ngFor="let property of (selectedPropertyList$ | async)?.records"
+  >
     {{ property.name }}
   </a>
 </mat-nav-list>
