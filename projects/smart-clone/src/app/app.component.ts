@@ -1,7 +1,7 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+
+import { currentPropertyList } from './state/property/property.selectors';
 
 @Component({
   selector: 'smart-clone-root',
@@ -9,10 +9,7 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(result => result.matches),
-    shareReplay()
-  );
+  propertyList$ = this.store.select(currentPropertyList);
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private store: Store) {}
 }

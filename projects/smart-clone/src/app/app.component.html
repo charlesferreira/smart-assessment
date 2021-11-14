@@ -6,6 +6,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    <pre>{{ propertyList$ | async | json }}</pre>
     <smartmap-map>
       <smartmap-source></smartmap-source>
       <smartmap-layer></smartmap-layer>
