@@ -1,17 +1,18 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { setLoading } from '@smart-clone/state/shared/shared.actions';
+import { environment } from '@smart-clone/env/environment';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
 
 @Injectable()
-export class LoadingStateInterceptor implements HttpInterceptor {
+export class TokenInjectionInterceptor implements HttpInterceptor {
   constructor(private store: Store) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.store.dispatch(setLoading(true));
+    const cloneReq = req.clone({
+      params: req.params.set('token', environment.smart.hardCoded.token),
+    });
 
-    return next.handle(req).pipe(finalize(() => this.store.dispatch(setLoading(false))));
+    return next.handle(cloneReq);
   }
 }
