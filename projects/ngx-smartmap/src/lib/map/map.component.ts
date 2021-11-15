@@ -9,7 +9,7 @@ import { MapService } from './map.service';
   styleUrls: ['./map.component.css'],
 })
 export class MapComponent implements OnInit {
-  @Input() config!: MapConfig;
+  @Input() config?: MapConfig;
 
   constructor(private mapService: MapService) {}
 

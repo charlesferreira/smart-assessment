@@ -1,14 +1,16 @@
-<a [routerLink]="[property.propertyID]">
-  <div class="wrapper">
-    <p class="name">{{ property.name }}</p>
-    <address>{{ property.streetAddress }}, {{ property.city }}</address>
-    <div class="floorplans">
-      <div class="bed" *ngFor="let floorplan of property.floorplans">
-        <img src="https://my.smartapartmentdata.com/assets/images/{{ floorplan.bedrooms }}-bed.svg" alt="" />
-        ${{ floorplan.price | number }}+
+<ng-container *ngIf="property as property">
+  <a [routerLink]="[property.propertyID]">
+    <div class="wrapper">
+      <p class="name">{{ property.name }}</p>
+      <address>{{ property.streetAddress }}, {{ property.city }}</address>
+      <div class="floorplans">
+        <div class="bed" *ngFor="let floorplan of property.floorplans">
+          <img src="https://my.smartapartmentdata.com/assets/images/{{ floorplan.bedrooms }}-bed.svg" alt="" />
+          ${{ floorplan.price | number }}+
+        </div>
       </div>
+      <p class="amenities">{{ property.highValueAmenities.length | pluralize: 'amenities' }}</p>
     </div>
-    <p class="amenities">{{ property.highValueAmenities.length | pluralize: 'amenities' }}</p>
-  </div>
-  <img [src]="property.photo" alt="" *ngIf="property.photo" />
-</a>
+    <img [src]="property.photo" alt="" *ngIf="property.photo" />
+  </a>
+</ng-container>

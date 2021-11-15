@@ -1,10 +1,10 @@
-<div class="default-padding specials" *ngIf="property.specials">
+<div class="default-padding specials" *ngIf="property?.specials as specials">
   <p class="title">SPECIALS</p>
-  <p>{{ property.specials }}</p>
+  <p>{{ specials }}</p>
 </div>
 
-<mat-accordion>
-  <mat-expansion-panel class="mat-elevation-z0" *ngFor="let plan of property.floorplans">
+<mat-accordion *ngIf="property?.floorplans as floorplans">
+  <mat-expansion-panel class="mat-elevation-z0" *ngFor="let plan of floorplans">
     <mat-expansion-panel-header disabled>
       <mat-panel-title>
         {{ plan.bed | pluralize: 'beds' }}, {{ plan.bath | pluralize: 'baths' }}, {{ plan.sqft }} sqft
