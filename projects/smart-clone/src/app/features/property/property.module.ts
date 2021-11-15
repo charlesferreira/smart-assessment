@@ -1,6 +1,5 @@
 import { CommonModule, I18nPluralPipe } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { httpInterceptorProviders } from '@smart-clone/http-interceptors';
@@ -31,12 +30,13 @@ import { PropertyListHeaderComponent } from './property-list/property-list-heade
 import { PropertyListItemComponent } from './property-list/property-list-item/property-list-item.component';
 import { PropertyListComponent } from './property-list/property-list.component';
 import { PropertyMapComponent } from './property-map/property-map.component';
+import { PropertyRoutingModule } from './property-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    PropertyRoutingModule,
     SharedModule,
-    RouterModule,
     NgxSmartmapModule,
     StoreModule.forFeature('property', propertyReducer),
     EffectsModule.forFeature([PropertyEffects]),

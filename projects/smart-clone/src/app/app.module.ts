@@ -9,7 +9,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PropertyModule } from './features/property/property.module';
 import { httpInterceptorProviders } from './http-interceptors';
 import { SharedModule } from './shared/shared.module';
 import { sharedReducer } from './state/shared/shared.reducer';
@@ -22,7 +21,6 @@ import { sharedReducer } from './state/shared/shared.reducer';
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    PropertyModule,
     StoreModule.forRoot({ shared: sharedReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
