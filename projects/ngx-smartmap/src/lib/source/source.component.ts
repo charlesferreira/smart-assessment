@@ -6,7 +6,12 @@ import { GeoJSON } from 'geojson';
   template: '',
 })
 export class SourceComponent implements OnInit {
-  @Input() data?: GeoJSON;
+  @Input() set data(data: GeoJSON) {
+    console.log(data);
+    this._data = data;
+  }
+
+  private _data?: GeoJSON;
 
   constructor() {}
 

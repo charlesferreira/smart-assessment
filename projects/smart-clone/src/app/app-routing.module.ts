@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from '@smart-clone/env/environment';
 
-import { PropertyDetailsComponent } from './property/property-details/property-details.component';
-import { PropertyListComponent } from './property/property-list/property-list.component';
+import { PropertyDetailsComponent } from './features/property/property-details/property-details.component';
+import { PropertyListComponent } from './features/property/property-list/property-list.component';
 import { TokenResolver } from './services/token-resolver.service';
 
-// use hard-coded values for the demo
+// using hard-coded values for the demo
 const { listID, token } = environment.smart.hardCoded;
 
 const routes: Routes = [

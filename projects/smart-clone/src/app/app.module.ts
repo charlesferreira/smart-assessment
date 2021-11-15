@@ -5,16 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { NgxSmartmapModule } from 'ngx-smartmap';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PropertyModule } from './features/property/property.module';
 import { httpInterceptorProviders } from './http-interceptors';
-import { PropertyModule } from './property/property.module';
 import { SharedModule } from './shared/shared.module';
-import { PropertyEffects } from './state/property/property.effects';
-import { propertyReducer } from './state/property/property.reducer';
 import { sharedReducer } from './state/shared/shared.reducer';
 
 @NgModule({
@@ -26,9 +23,7 @@ import { sharedReducer } from './state/shared/shared.reducer';
     BrowserAnimationsModule,
     SharedModule,
     PropertyModule,
-    NgxSmartmapModule,
-    StoreModule.forRoot({ property: propertyReducer, shared: sharedReducer }),
-    EffectsModule.forFeature([PropertyEffects]),
+    StoreModule.forRoot({ shared: sharedReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
   ],

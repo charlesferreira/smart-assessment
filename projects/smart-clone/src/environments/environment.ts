@@ -7,7 +7,7 @@ export const environment = {
   smart: {
     apiUrl: 'https://app.smartapartmentdata.com/List/json',
     hardCoded: {
-      // the following data is hard-coded for the demo
+      // the following hard-coded data is for demo purposes only
       listID: 5363950,
       token: '5AE7DFB40500DDC03BC84BD3F0A8AC0F18784B1E',
     },
