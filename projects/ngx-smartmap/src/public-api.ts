@@ -5,6 +5,7 @@
 export * from './lib/ngx-smartmap.module';
 export * from './lib/map/map.service';
 
+export * from './lib/models/geojson.model';
 export * from './lib/models/map-config.model';
 
 export * from './lib/map/map.component';

@@ -5,12 +5,13 @@
 
 <mat-accordion>
   <mat-expansion-panel class="mat-elevation-z0" *ngFor="let plan of property.floorplans">
-    <mat-expansion-panel-header>
+    <mat-expansion-panel-header disabled>
       <mat-panel-title>
         {{ plan.bed | pluralize: 'beds' }}, {{ plan.bath | pluralize: 'baths' }}, {{ plan.sqft }} sqft
       </mat-panel-title>
       <mat-panel-description class="align-right">${{ plan.price | number }}</mat-panel-description>
     </mat-expansion-panel-header>
-    <img [src]="plan.photoUrl" alt="" />
+    <img [src]="plan.photoUrl" alt="" *ngIf="plan.photoUrl; else noImage" />
+    <ng-template #noImage>No Image</ng-template>
   </mat-expansion-panel>
 </mat-accordion>
