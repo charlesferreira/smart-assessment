@@ -1,13 +1,28 @@
 import { Injectable } from '@angular/core';
-import * as Mapbox from 'mapbox-gl';
+import { Map, MapboxOptions } from 'mapbox-gl';
+import { AsyncSubject, fromEvent } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MapService {
-  map?: Mapbox.Map;
+  map$ = new AsyncSubject<Map>();
 
-  initMap(config: Mapbox.MapboxOptions) {
-    this.map = new Mapbox.Map(config);
+  private _map?: Map;
+
+  createMap(config: MapboxOptions) {
+    this._map = new Map(config);
+
+    fromEvent(this._map, 'load').subscribe(({ target }) => {
+      this.map$.next(target);
+      this.map$.complete();
+    });
+  }
+
+  destroyMap() {
+    if (this._map) {
+      this._map.remove();
+      this.map$.unsubscribe();
+    }
   }
 }

@@ -1,4 +1,4 @@
 <smartmap-map [config]="mapConfig">
-  <smartmap-source></smartmap-source>
-  <smartmap-layer></smartmap-layer>
+  <smartmap-source id="teste" [data]="mapData$ | async | geojson"></smartmap-source>
+  <smartmap-layer sourceId="teste"></smartmap-layer>
 </smartmap-map>
