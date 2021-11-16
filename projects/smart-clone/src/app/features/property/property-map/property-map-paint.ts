@@ -8,10 +8,7 @@ export const propertyListPaint = {
 };
 
 export const propertyPaint = {
-  'circle-radius': 30,
-  'circle-color': '#0ff',
-  'circle-opacity': 0.75,
-  'circle-stroke-width': 3,
-  'circle-stroke-color': '#0f0',
-  'circle-stroke-opacity': 1,
+  ...propertyListPaint,
+  'circle-color': '#75acff',
+  'circle-stroke-color': '#5193f7',
 };
