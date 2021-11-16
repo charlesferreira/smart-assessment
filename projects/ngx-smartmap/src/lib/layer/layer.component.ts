@@ -10,23 +10,18 @@ import { MapService } from '../map/map.service';
 export class LayerComponent implements OnInit {
   @Input() id = '';
   @Input() sourceId = '';
+  @Input() type: any;
+  @Input() paint: any;
 
   constructor(private mapService: MapService) {}
 
   ngOnInit(): void {
-    console.log('LayerComponent.ngOnInit');
-
     this.mapService.map$.pipe(first()).subscribe(map => {
-      console.log('Adding layer');
-
       map.addLayer({
         id: this.id,
-        type: 'circle',
+        type: this.type,
         source: this.sourceId,
-        paint: {
-          'circle-radius': 10,
-          'circle-color': '#007cbf',
-        },
+        paint: this.paint,
       });
     });
   }

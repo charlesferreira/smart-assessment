@@ -1,4 +1,10 @@
 <smartmap-map [config]="mapConfig">
-  <smartmap-source id="teste" [data]="mapData$ | async | geojson"></smartmap-source>
-  <smartmap-layer sourceId="teste"></smartmap-layer>
+  <smartmap-source
+    id="properties"
+    [data]="mapData$ | async | geojson"
+    [maxZoom]="17"
+    [zoomPadding]="60"
+    [zoomToFit]="true"
+  ></smartmap-source>
+  <smartmap-layer id="properties" sourceId="properties" type="circle" [paint]="paint$ | async"></smartmap-layer>
 </smartmap-map>

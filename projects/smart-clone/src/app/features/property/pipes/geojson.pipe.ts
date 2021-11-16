@@ -1,21 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { isProperty } from '@smart-clone/helpers/property';
 import { PropertyList } from '@smart-clone/models/property-list.model';
 import { Property } from '@smart-clone/models/property.model';
-import { GeoJSON } from 'geojson';
+import { Feature, FeatureCollection, Point } from 'geojson';
 
 type InputType = Property | PropertyList | undefined | null;
-type ReturnType = GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry> | string | undefined;
+type ReturnType = Feature<Point> | FeatureCollection<Point>;
 
 @Pipe({
   name: 'geojson',
 })
 export class GeojsonPipe implements PipeTransform {
   transform(value: InputType): ReturnType {
-    if (!value) return undefined;
+    if (!value) return { type: 'FeatureCollection', features: [] };
 
-    const isProperty = (value as Property).propertyID !== undefined;
-
-    return isProperty ? this.transformProperty(value as Property) : this.transformPropertyList(value as PropertyList);
+    return isProperty(value)
+      ? this.transformProperty(value as Property)
+      : this.transformPropertyList(value as PropertyList);
   }
 
   private transformProperty(property: Property): ReturnType {
@@ -33,7 +34,7 @@ export class GeojsonPipe implements PipeTransform {
   private transformPropertyList(propertyList: PropertyList): ReturnType {
     return {
       type: 'FeatureCollection',
-      features: propertyList.records.map(property => this.transformProperty(property) as GeoJSON.Feature),
+      features: propertyList.records.map(property => this.transformProperty(property) as Feature<Point>),
     };
   }
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
-import { MapConfig } from './../models/map-config.model';
+import { MapConfig } from './map-config.model';
 import { MapService } from './map.service';
 
 @Component({

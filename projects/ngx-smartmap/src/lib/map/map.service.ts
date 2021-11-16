@@ -8,21 +8,20 @@ import { AsyncSubject, fromEvent } from 'rxjs';
 export class MapService {
   map$ = new AsyncSubject<Map>();
 
-  private _map?: Map;
+  private map?: Map;
 
   createMap(config: MapboxOptions) {
-    this._map = new Map(config);
+    this.map = new Map(config);
 
-    fromEvent(this._map, 'load').subscribe(({ target }) => {
+    fromEvent(this.map, 'load').subscribe(({ target }) => {
       this.map$.next(target);
       this.map$.complete();
     });
   }
 
   destroyMap() {
-    if (this._map) {
-      this._map.remove();
-      this.map$.unsubscribe();
+    if (this.map) {
+      this.map.remove();
     }
   }
 }
