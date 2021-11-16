@@ -9,5 +9,5 @@ import { PropertyList } from '@smart-clone/models/property-list.model';
 })
 export class PropertyListHeaderComponent {
   @Input() isLoading = false;
-  @Input() propertyList?: PropertyList;
+  @Input() propertyList?: PropertyList | null;
 }

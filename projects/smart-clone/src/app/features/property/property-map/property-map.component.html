@@ -1,16 +1,45 @@
 <smartmap-map [config]="mapConfig">
   <smartmap-source
-    id="properties"
+    id="geojson"
     [data]="mapData$ | async | geojson"
     [maxZoom]="17"
     [zoomPadding]="60"
     [zoomToFit]="true"
   ></smartmap-source>
+
   <smartmap-layer
-    id="properties"
-    sourceId="properties"
+    id="propertyList"
+    sourceId="geojson"
     type="circle"
-    [paint]="paint$ | async"
-    [visible]="condition"
+    [paint]="{
+      'circle-radius': 30,
+      'circle-color': '#fecccc',
+      'circle-opacity': 0.75,
+      'circle-stroke-width': 3,
+      'circle-stroke-color': '#e09494',
+      'circle-stroke-opacity': 1
+    }"
+    [interactive]="true"
+    [visible]="(isProperty$ | async) === false"
+    (click)="onPropertyListClick($event)"
   ></smartmap-layer>
+
+  <smartmap-layer
+    id="propertyDetails"
+    sourceId="geojson"
+    type="circle"
+    [paint]="{
+      'circle-radius': 30,
+      'circle-color': '#75acff',
+      'circle-opacity': 0.75,
+      'circle-stroke-width': 3,
+      'circle-stroke-color': '#5193f7',
+      'circle-stroke-opacity': 1
+    }"
+    [visible]="(isProperty$ | async) !== false"
+  ></smartmap-layer>
+
+  <!-- <smartmap-marker [position]="coordinates$ | async">
+    <smartmap-marker-icon></smartmap-marker-icon>
+  </smartmap-marker> -->
 </smartmap-map>

@@ -8,5 +8,5 @@ import { PropertyList } from '@smart-clone/models/property-list.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PropertyListBodyComponent {
-  @Input() propertyList?: PropertyList;
+  @Input() propertyList?: PropertyList | null;
 }

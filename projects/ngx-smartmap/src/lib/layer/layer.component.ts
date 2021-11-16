@@ -1,4 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Map } from 'mapbox-gl';
 import { first } from 'rxjs/operators';
 
 import { MapService } from '../map/map.service';
@@ -11,6 +12,7 @@ export class LayerComponent implements OnInit, OnDestroy {
   @Input() id = '';
   @Input() sourceId = '';
   @Input() type: any;
+  @Input() interactive = false;
 
   @Input() set paint(paint: any) {
     this.setPaint(paint);
@@ -19,6 +21,11 @@ export class LayerComponent implements OnInit, OnDestroy {
   @Input() set visible(visible: boolean) {
     this.setVisibility(visible);
   }
+
+  @Output() click = new EventEmitter<any>();
+  @Output() mousemove = new EventEmitter<any>();
+  @Output() mouseenter = new EventEmitter<any>();
+  @Output() mouseleave = new EventEmitter<any>();
 
   private _paint: any;
   private _visible = true;
@@ -40,6 +47,7 @@ export class LayerComponent implements OnInit, OnDestroy {
     this.map$.subscribe(map => {
       if (this.layerAdded) return;
       this.layerAdded = true;
+
       map.addLayer({
         id: this.id,
         type: this.type,
@@ -49,6 +57,10 @@ export class LayerComponent implements OnInit, OnDestroy {
           visibility: this._visible ? 'visible' : 'none',
         },
       });
+
+      if (this.interactive) {
+        this.bindEvents(map);
+      }
     });
   }
 
@@ -61,6 +73,13 @@ export class LayerComponent implements OnInit, OnDestroy {
         map.removeLayer(this.id);
       }
     });
+  }
+
+  private bindEvents(map: Map) {
+    map.on('click', this.id, e => this.click.emit(e));
+    map.on('mousemove', this.id, e => this.mousemove.emit(e));
+    map.on('mouseenter', this.id, e => this.mouseenter.emit(e));
+    map.on('mouseleave', this.id, e => this.mouseleave.emit(e));
   }
 
   private setPaint(paint: any) {

@@ -1,6 +1,9 @@
 <smart-clone-property-list-header
-  [propertyList]="propertyList"
-  [isLoading]="isLoading"
+  [propertyList]="propertyList$ | async"
+  [isLoading]="(isLoading$ | async) !== false"
 ></smart-clone-property-list-header>
 
-<smart-clone-property-list-body [propertyList]="propertyList" *ngIf="!isLoading"></smart-clone-property-list-body>
+<smart-clone-property-list-body
+  [propertyList]="propertyList$ | async"
+  *ngIf="(isLoading$ | async) === false"
+></smart-clone-property-list-body>
