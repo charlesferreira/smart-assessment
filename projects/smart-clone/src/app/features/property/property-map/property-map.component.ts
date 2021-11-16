@@ -22,7 +22,7 @@ export class PropertyMapComponent implements OnInit, OnDestroy {
 
   isLoading$ = this.store.select(isLoading);
 
-  currentData$ = merge(
+  mapData$ = merge(
     this.store.select(getCurrentPropertyList).pipe(map(p => this.geojsonPipe.transform(p))),
     this.store.select(getCurrentProperty).pipe(map(p => this.geojsonPipe.transform(p))),
     this.store.select(getCurrentView).pipe(
@@ -33,12 +33,6 @@ export class PropertyMapComponent implements OnInit, OnDestroy {
 
   currentView$ = new BehaviorSubject<CurrentView | undefined>(undefined);
 
-  get currentRoute(): ActivatedRoute | null {
-    let route = this.route.firstChild;
-    while (route?.firstChild) route = route.firstChild;
-    return route;
-  }
-
   constructor(
     private store: Store,
     private router: Router,
@@ -47,7 +41,7 @@ export class PropertyMapComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    zip(this.currentData$, this.store.select(getCurrentView))
+    zip(this.mapData$, this.store.select(getCurrentView))
       .pipe(map(([_, view]) => view))
       .subscribe(this.currentView$);
   }
@@ -59,7 +53,9 @@ export class PropertyMapComponent implements OnInit, OnDestroy {
 
   onPropertyListClick(e: any) {
     const { propertyID } = e.features[0].properties;
+    let route = this.route.firstChild;
+    while (route?.firstChild) route = route.firstChild;
 
-    this.router.navigate([propertyID], { relativeTo: this.currentRoute });
+    this.router.navigate([propertyID], { relativeTo: route });
   }
 }

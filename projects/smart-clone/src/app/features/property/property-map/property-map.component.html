@@ -3,7 +3,7 @@
 <smartmap-map [config]="mapConfig">
   <smartmap-source
     id="geojson"
-    [data]="currentData$ | async"
+    [data]="mapData$ | async"
     [maxZoom]="17"
     [zoomPadding]="60"
     [zoomToFit]="true"

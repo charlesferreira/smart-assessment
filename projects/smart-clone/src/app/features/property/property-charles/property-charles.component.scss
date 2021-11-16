@@ -1,0 +1,23 @@
+:host {
+  padding: var(--default-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  width: 50%;
+  height: auto;
+  margin: 3rem 0 1rem;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 1px 1px 3px #00000033;
+}
+
+p {
+  width: 80%;
+}
