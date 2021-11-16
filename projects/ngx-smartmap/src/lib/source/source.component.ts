@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Feature, FeatureCollection, Point } from 'geojson';
-import { GeoJSONSource, LngLatBounds } from 'mapbox-gl';
+import { GeoJSONSource, LngLatBounds, Map } from 'mapbox-gl';
 import { first } from 'rxjs/operators';
 
 import { MapService } from '../map/map.service';
@@ -62,8 +62,14 @@ export class SourceComponent implements OnInit, OnDestroy {
 
   private removeSource(): void {
     this.map$.subscribe(map => {
+      this.removeSourceLayers(map);
       map.removeSource(this.id);
     });
+  }
+
+  private removeSourceLayers(map: Map): void {
+    const layers = (map.getStyle().layers || []).filter(layer => 'source' in layer && layer.source === this.id);
+    layers.forEach(layer => map.removeLayer(layer.id));
   }
 
   private getCoordinates(data: DataType): number[][] {

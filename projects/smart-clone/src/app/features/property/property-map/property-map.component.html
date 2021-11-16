@@ -6,5 +6,11 @@
     [zoomPadding]="60"
     [zoomToFit]="true"
   ></smartmap-source>
-  <smartmap-layer id="properties" sourceId="properties" type="circle" [paint]="paint$ | async"></smartmap-layer>
+  <smartmap-layer
+    id="properties"
+    sourceId="properties"
+    type="circle"
+    [paint]="paint$ | async"
+    [visible]="condition"
+  ></smartmap-layer>
 </smartmap-map>
