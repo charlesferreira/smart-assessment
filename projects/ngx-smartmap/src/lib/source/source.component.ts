@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { MapService } from '../map/map.service';
 
-type DataType = Feature<Point> | FeatureCollection<Point> | undefined;
+type DataType = Feature<Point> | FeatureCollection<Point> | null | undefined;
 
 @Component({
   selector: 'smartmap-source',
@@ -48,7 +48,7 @@ export class SourceComponent implements OnInit, OnDestroy {
 
       map.addSource(this.id, {
         type: 'geojson',
-        data,
+        data: data || undefined,
       });
 
       if (this.zoomToFit) this.fitBounds(data);
@@ -67,6 +67,7 @@ export class SourceComponent implements OnInit, OnDestroy {
     this.map$.subscribe(map => {
       this.removeSourceLayers(map);
       map.removeSource(this.id);
+      this.sourceAdded = false;
     });
   }
 
@@ -76,7 +77,7 @@ export class SourceComponent implements OnInit, OnDestroy {
   }
 
   private getCoordinates(data: DataType): number[][] {
-    if (data === undefined) return [];
+    if (!data) return [];
 
     if (data.type === 'FeatureCollection') {
       return data.features.map(feature => feature.geometry.coordinates);

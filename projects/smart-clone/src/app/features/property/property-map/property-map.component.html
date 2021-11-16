@@ -1,17 +1,21 @@
+<a [routerLink]="['/property/charles']"> Charles </a>
+<a [routerLink]="['/']"> Smart </a>
+
+{{ currentView$ | async }}
 <smartmap-map [config]="mapConfig">
-  <!-- Property List -->
   <smartmap-source
-    id="property-list"
-    [data]="currentPropertyList$ | async | geojson"
+    id="geojson"
+    [data]="currentData$ | async"
     [maxZoom]="17"
     [zoomPadding]="60"
     [zoomToFit]="true"
   ></smartmap-source>
 
-  <ng-container *ngIf="(currentView$ | async) === 'property-list'">
+  <ng-container *ngIf="currentView$ | async as currentView">
+    <!-- Property List -->
     <smartmap-layer
       id="property-list"
-      sourceId="property-list"
+      sourceId="geojson"
       type="circle"
       [paint]="{
         'circle-radius': 30,
@@ -22,23 +26,14 @@
         'circle-stroke-opacity': 1
       }"
       [interactive]="true"
+      [visible]="currentView === 'property-list'"
       (click)="onPropertyListClick($event)"
     ></smartmap-layer>
-  </ng-container>
 
-  <!-- Property Details -->
-  <smartmap-source
-    id="property-details"
-    [data]="currentProperty$ | async | geojson"
-    [maxZoom]="17"
-    [zoomPadding]="60"
-    [zoomToFit]="true"
-  ></smartmap-source>
-
-  <ng-container *ngIf="(currentView$ | async) === 'property-details'">
+    <!-- Property Details -->
     <smartmap-layer
       id="property-details"
-      sourceId="property-details"
+      sourceId="geojson"
       type="circle"
       [paint]="{
         'circle-radius': 30,
@@ -48,22 +43,13 @@
         'circle-stroke-color': '#5193f7',
         'circle-stroke-opacity': 1
       }"
+      [visible]="currentView === 'property-details'"
     ></smartmap-layer>
-  </ng-container>
 
-  <!-- Charles' Home -->
-  <smartmap-source
-    id="property-charles"
-    [data]="charlesHome"
-    [maxZoom]="17"
-    [zoomPadding]="60"
-    [zoomToFit]="false"
-  ></smartmap-source>
-
-  <ng-container *ngIf="(currentView$ | async) === 'property-charles'">
+    <!-- Charles' Home -->
     <smartmap-layer
       id="property-charles"
-      sourceId="property-charles"
+      sourceId="geojson"
       type="circle"
       [paint]="{
         'circle-radius': 30,
@@ -73,6 +59,7 @@
         'circle-stroke-color': '#5193f7',
         'circle-stroke-opacity': 1
       }"
+      [visible]="currentView === 'property-charles'"
     ></smartmap-layer>
   </ng-container>
 
