@@ -1,7 +1,5 @@
-<a [routerLink]="['/property/charles']"> Charles </a>
-<a [routerLink]="['/']"> Smart </a>
+<smart-clone-property-map-nav [isLoading]="(isLoading$ | async) !== false"></smart-clone-property-map-nav>
 
-{{ currentView$ | async }}
 <smartmap-map [config]="mapConfig">
   <smartmap-source
     id="geojson"
@@ -62,8 +60,4 @@
       [visible]="currentView === 'property-charles'"
     ></smartmap-layer>
   </ng-container>
-
-  <!-- <smartmap-marker [position]="coordinates$ | async">
-    <smartmap-marker-icon></smartmap-marker-icon>
-  </smartmap-marker> -->
 </smartmap-map>

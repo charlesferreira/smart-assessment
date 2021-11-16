@@ -33,6 +33,7 @@ import { PropertyListComponent } from './property-list/property-list.component';
 import { PropertyMapComponent } from './property-map/property-map.component';
 import { PropertyRoutingModule } from './property-routing.module';
 import { PropertyComponent } from './property.component';
+import { PropertyMapNavComponent } from './property-map/property-map-nav/property-map-nav.component';
 
 @NgModule({
   imports: [
@@ -60,6 +61,7 @@ import { PropertyComponent } from './property.component';
     PropertyMapComponent,
     PropertyComponent,
     PropertyCharlesComponent,
+    PropertyMapNavComponent,
   ],
   exports: [PropertyListComponent, PropertyMapComponent, GeojsonPipe],
   providers: [httpInterceptorProviders, I18nPluralPipe],

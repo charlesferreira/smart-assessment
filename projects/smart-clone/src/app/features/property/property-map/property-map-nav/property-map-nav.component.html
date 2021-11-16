@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <li>
+      <a [routerLink]="isLoading ? null : ['/property/charles']" [class.disabled]="isLoading">
+        <img src="/assets/img/charles.jpeg" alt="" />
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="isLoading ? null : ['/']" [class.disabled]="isLoading">
+        <img src="/assets/img/smart-logo.png" alt="" />
+      </a>
+    </li>
+  </ul>
+</nav>
