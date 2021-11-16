@@ -1,11 +1,11 @@
 <smart-clone-property-details-header
-  [property]="property"
-  [isLoading]="isLoading"
+  [property]="property$ | async"
+  [isLoading]="isLoading$ | async"
 ></smart-clone-property-details-header>
 
-<smart-clone-property-details-photos
-  [photos]="property.photos"
-  *ngIf="property && !isLoading"
-></smart-clone-property-details-photos>
-
-<smart-clone-property-details-body [property]="property" *ngIf="!isLoading"></smart-clone-property-details-body>
+<ng-container *ngIf="(isLoading$ | async) === false">
+  <ng-container *ngIf="property$ | async as property">
+    <smart-clone-property-details-photos [photos]="property.photos"></smart-clone-property-details-photos>
+    <smart-clone-property-details-body [property]="property"></smart-clone-property-details-body>
+  </ng-container>
+</ng-container>

@@ -8,7 +8,7 @@ export class PropertyListTitlePipe implements PipeTransform {
   transform(propertyList: PropertyList): string {
     if (propertyList.title) return propertyList.title;
 
-    const { firstname, lastname, company } = propertyList.agentInfo;
+    const { firstname, lastname, company } = propertyList.agentInfo!;
     return `${firstname} ${lastname} | ${company}`;
   }
 }

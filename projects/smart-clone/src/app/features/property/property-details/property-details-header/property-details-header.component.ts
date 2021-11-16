@@ -8,6 +8,6 @@ import { Property } from '@smart-clone/models/property.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PropertyDetailsHeaderComponent {
-  @Input() isLoading = false;
-  @Input() property?: Property;
+  @Input() isLoading: boolean | null = false;
+  @Input() property?: Property | null;
 }

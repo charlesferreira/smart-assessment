@@ -20,7 +20,6 @@ export class SourceComponent implements OnInit, OnDestroy {
   @Input()
   set data(data: DataType) {
     this.sourceAdded ? this.updateSource(data) : this.addSource(data);
-    if (this.zoomToFit) this.fitBounds(data);
   }
 
   private sourceAdded = false;
@@ -51,12 +50,16 @@ export class SourceComponent implements OnInit, OnDestroy {
         type: 'geojson',
         data,
       });
+
+      if (this.zoomToFit) this.fitBounds(data);
     });
   }
 
   private updateSource(data: DataType): void {
     this.map$.subscribe(map => {
       (map.getSource(this.id) as GeoJSONSource).setData(data!);
+
+      if (this.zoomToFit) this.fitBounds(data);
     });
   }
 

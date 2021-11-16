@@ -1,10 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectPropertyList } from '@smart-clone/state/property/property.actions';
-import { currentPropertyList } from '@smart-clone/state/property/property.selectors';
+import { PropertyList } from '@smart-clone/models/property-list.model';
+import { loadPropertyList } from '@smart-clone/state/property/property.actions';
+import { getCurrentPropertyList } from '@smart-clone/state/property/property.selectors';
 import { isLoading } from '@smart-clone/state/shared/shared.selectors';
 import { Subscription } from 'rxjs';
+
+import { setCurrentView } from './../../../state/property/property.actions';
 
 @Component({
   selector: 'smart-clone-property-list',
@@ -13,7 +16,7 @@ import { Subscription } from 'rxjs';
 })
 export class PropertyListComponent implements OnInit, OnDestroy {
   isLoading$ = this.store.select(isLoading);
-  propertyList$ = this.store.select(currentPropertyList);
+  propertyList$ = this.store.select(getCurrentPropertyList);
 
   sub = new Subscription();
 
@@ -21,7 +24,8 @@ export class PropertyListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const listID = +this.route.snapshot.paramMap.get('listID')!;
-    this.store.dispatch(selectPropertyList({ listID }));
+    this.store.dispatch(setCurrentView('property-list'));
+    this.store.dispatch(loadPropertyList(<PropertyList>{ listID }));
   }
 
   ngOnDestroy(): void {

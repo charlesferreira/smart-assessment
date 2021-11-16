@@ -2,7 +2,7 @@ import { CommonModule, I18nPluralPipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { httpInterceptorProviders } from '@smart-clone/http-interceptors';
+import { httpInterceptorProviders } from '@smart-clone/services/http-interceptors';
 import { SharedModule } from '@smart-clone/shared/shared.module';
 import { PropertyEffects } from '@smart-clone/state/property/property.effects';
 import { propertyReducer } from '@smart-clone/state/property/property.reducer';
@@ -11,6 +11,7 @@ import { NgxSmartmapModule } from 'ngx-smartmap';
 import { GeojsonPipe } from './pipes/geojson.pipe';
 import { PluralizePipe } from './pipes/pluralize.pipe';
 import { PropertyListTitlePipe } from './pipes/property-list-title.pipe';
+import { PropertyCharlesComponent } from './property-charles/property-charles.component';
 import {
   PropertyDetailsBodyOverviewComponent,
 } from './property-details/property-details-body/property-details-body-overview/property-details-body-overview.component';
@@ -58,6 +59,7 @@ import { PropertyComponent } from './property.component';
     PropertyDetailsPhotosComponent,
     PropertyMapComponent,
     PropertyComponent,
+    PropertyCharlesComponent,
   ],
   exports: [PropertyListComponent, PropertyMapComponent, GeojsonPipe],
   providers: [httpInterceptorProviders, I18nPluralPipe],

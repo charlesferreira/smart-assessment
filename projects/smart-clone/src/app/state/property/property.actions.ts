@@ -2,20 +2,26 @@ import { createAction, props } from '@ngrx/store';
 import { PropertyList } from '@smart-clone/models/property-list.model';
 import { Property } from '@smart-clone/models/property.model';
 
-export const selectPropertyList = createAction('[Property] Select PropertyList', props<{ listID: number }>());
+import { CurrentView } from './property.state';
 
-export const selectedPropertyList = createAction('[Property] Selected PropertyList', props<PropertyList>());
+// Property List Actions
 
-export const errorSelectingPropertyList = createAction(
-  '[Property] Error Selecting PropertyList',
-  props<{ error: any }>()
-);
+export const loadPropertyList = createAction('[Property] Load PropertyList', props<PropertyList>());
 
-export const selectProperty = createAction(
-  '[Property] Select Property',
-  props<{ listID: number; propertyID: number }>()
-);
+export const loadedPropertyList = createAction('[Property] Loaded PropertyList', props<PropertyList>());
 
-export const selectedProperty = createAction('[Property] Selected Property', props<Property>());
+export const errorLoadingPropertyList = createAction('[Property] Error Loading PropertyList', props<{ error: any }>());
 
-export const errorSelectingProperty = createAction('[Property] Error Selecting Property', props<{ error: any }>());
+// Property Actions
+
+export const loadProperty = createAction('[Property] Load Property', props<Property>());
+
+export const loadedProperty = createAction('[Property] Loaded Property', props<Property>());
+
+export const errorLoadingProperty = createAction('[Property] Error Loading Property', props<{ error: any }>());
+
+// View Actions
+
+export const setCurrentView = createAction('[Property] Set Current View', (currentView: CurrentView) => ({
+  currentView,
+}));
