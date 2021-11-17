@@ -9,9 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { httpInterceptorProviders } from './services/http-interceptors';
 import { SharedModule } from './shared/shared.module';
-import { sharedReducer } from './state/shared/shared.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,11 +19,11 @@ import { sharedReducer } from './state/shared/shared.reducer';
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    StoreModule.forRoot({ shared: sharedReducer }),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
   ],
-  providers: [httpInterceptorProviders],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

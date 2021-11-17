@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { PropertyService } from '@smart-clone/services/property.service';
+import { PropertyService } from '@smart-clone/property/services/property.service';
 import { merge, of } from 'rxjs';
 import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 

@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'property',
     pathMatch: 'prefix',
-    loadChildren: () => import('./features/property/property.module').then(m => m.PropertyModule),
+    loadChildren: () => import('./property/property.module').then(m => m.PropertyModule),
   },
 ];
 

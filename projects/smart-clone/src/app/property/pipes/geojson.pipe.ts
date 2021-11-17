@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { isProperty } from '@smart-clone/features/property/helpers/property-helpers';
 import { PropertyList } from '@smart-clone/models/property-list.model';
 import { Property } from '@smart-clone/models/property.model';
+import { isProperty } from '@smart-clone/property/helpers/property-helpers';
 import { Feature, FeatureCollection, Point } from 'geojson';
 
 type InputType = Property | PropertyList | undefined | null;

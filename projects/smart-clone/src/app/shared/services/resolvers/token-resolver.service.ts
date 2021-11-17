@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { setToken } from '@smart-clone/state/shared/shared.actions';
+import { setToken } from '@smart-clone/shared/state/shared.actions';
 
 @Injectable({
   providedIn: 'root',

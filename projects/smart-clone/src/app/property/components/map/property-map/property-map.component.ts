@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { getCurrentProperty, getCurrentPropertyList, getCurrentView } from '@smart-clone/state/property/property.selectors';
-import { CurrentView } from '@smart-clone/state/property/property.state';
-import { isLoading } from '@smart-clone/state/shared/shared.selectors';
+import { getCurrentProperty, getCurrentPropertyList, getCurrentView } from '@smart-clone/property/state/property.selectors';
+import { CurrentView } from '@smart-clone/property/state/property.state';
+import { isLoading } from '@smart-clone/shared/state/shared.selectors';
 import { BehaviorSubject, merge, zip } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
-import { GeojsonPipe } from '../pipes/geojson.pipe';
-import { charlesHome } from '../property-charles/property-charles-data';
+import { GeojsonPipe } from '../../../pipes/geojson.pipe';
+import { charlesHome } from '../../sidebar/property-charles/property-charles-data';
 import { mapConfig } from './property-map-config';
 
 @Component({

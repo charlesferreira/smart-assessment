@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Property } from '@smart-clone/models/property.model';
-import { loadProperty, setCurrentView } from '@smart-clone/state/property/property.actions';
-import { getCurrentProperty } from '@smart-clone/state/property/property.selectors';
-import { isLoading } from '@smart-clone/state/shared/shared.selectors';
+import { loadProperty, setCurrentView } from '@smart-clone/property/state/property.actions';
+import { getCurrentProperty } from '@smart-clone/property/state/property.selectors';
+import { isLoading } from '@smart-clone/shared/state/shared.selectors';
 
 @Component({
   selector: 'smart-clone-property-details',

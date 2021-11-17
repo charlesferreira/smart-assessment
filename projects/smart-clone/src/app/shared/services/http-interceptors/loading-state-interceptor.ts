@@ -1,7 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { setLoading } from '@smart-clone/state/shared/shared.actions';
+import { setLoading } from '@smart-clone/shared/state/shared.actions';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 

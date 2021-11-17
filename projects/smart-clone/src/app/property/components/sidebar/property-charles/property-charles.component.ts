@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { setCurrentView } from '@smart-clone/state/property/property.actions';
+import { setCurrentView } from '@smart-clone/property/state/property.actions';
 
 @Component({
   selector: 'smart-clone-property-charles',

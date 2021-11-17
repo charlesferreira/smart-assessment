@@ -1,7 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { token } from '@smart-clone/state/shared/shared.selectors';
+import { token } from '@smart-clone/shared/state/shared.selectors';
 import { Observable } from 'rxjs';
 import { first, mergeMap } from 'rxjs/operators';
 

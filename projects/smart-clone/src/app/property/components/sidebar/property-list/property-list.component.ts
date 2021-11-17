@@ -2,12 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { PropertyList } from '@smart-clone/models/property-list.model';
-import { loadPropertyList } from '@smart-clone/state/property/property.actions';
-import { getCurrentPropertyList } from '@smart-clone/state/property/property.selectors';
-import { isLoading } from '@smart-clone/state/shared/shared.selectors';
+import { loadPropertyList, setCurrentView } from '@smart-clone/property/state/property.actions';
+import { getCurrentPropertyList } from '@smart-clone/property/state/property.selectors';
+import { isLoading } from '@smart-clone/shared/state/shared.selectors';
 import { Subscription } from 'rxjs';
-
-import { setCurrentView } from './../../../state/property/property.actions';
 
 @Component({
   selector: 'smart-clone-property-list',

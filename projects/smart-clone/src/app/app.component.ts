@@ -1,7 +1,7 @@
 import { AfterViewChecked, ChangeDetectorRef, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as fromShared from './state/shared/shared.selectors';
+import * as fromShared from './shared/state/shared.selectors';
 
 @Component({
   selector: 'smart-clone-root',

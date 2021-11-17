@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from '@smart-clone/env/environment';
-import { TokenResolver } from '@smart-clone/services/resolvers/token-resolver.service';
+import { TokenResolver } from '@smart-clone/shared/services/resolvers/token-resolver.service';
 
-import { PropertyCharlesComponent } from './property-charles/property-charles.component';
-import { PropertyDetailsComponent } from './property-details/property-details.component';
-import { PropertyListComponent } from './property-list/property-list.component';
+import { PropertyCharlesComponent } from './components/sidebar/property-charles/property-charles.component';
+import { PropertyDetailsComponent } from './components/sidebar/property-details/property-details.component';
+import { PropertyListComponent } from './components/sidebar/property-list/property-list.component';
 import { PropertyComponent } from './property.component';
 
 // using hard-coded values just for the demo
